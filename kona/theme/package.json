@@ -1,0 +1,19 @@
+{
+  "name": "paseo-kona-theme",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "paseo-plugin.json",
+    "README.md",
+    "index.client.ts",
+    "palette.json",
+    "tools/"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@getpaseo/plugin": "0.11.2",
+    "typescript": "5.9.3"
+  }
+}

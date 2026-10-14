@@ -1,0 +1,8 @@
+{
+  "id": "kona",
+  "name": "Kona",
+  "description": "Colors from the current Kona desktop palette",
+  "requirements": {
+    "paseo": ">=0.11.2 <0.12.0"
+  }
+}

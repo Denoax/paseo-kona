@@ -1,0 +1,24 @@
+--- a/.config/quickshell/kona/sidebar/shell.qml
++++ b/.config/quickshell/kona/sidebar/shell.qml
+@@ -31,7 +31,7 @@
+         return {id: id, focused: workspace ? workspace.focused : false,
+             occupied: workspace ? workspace.toplevels.values.length > 0 : false};
+     })
+-    readonly property var preferredAppNames: ["brave", "kitty", "dolphin", "steam", "code"]
++    readonly property var preferredAppNames: ["brave", "kitty", "dolphin", "hermes-workspace", "code", "paseo"]
+     function normalizedAppName(value) {
+         return String(value || "").toLowerCase().replace(/\.desktop$/, "").replace(/[^a-z0-9]/g, "");
+     }
+@@ -64,10 +64,10 @@
+             if (match && !selected.includes(match)) selected.push(match);
+         }
+         for (const app of available) {
+-            if (selected.length >= 5) break;
++            if (selected.length >= preferredAppNames.length) break;
+             if (!selected.includes(app)) selected.push(app);
+         }
+-        return selected.slice(0, 5).map(app => {
++        return selected.slice(0, preferredAppNames.length).map(app => {
+             const windows = toplevels.filter(toplevel => root.entryMatches(app, toplevel));
+             const target = windows.find(toplevel => toplevel.address === root.activeAddress) || windows[0] || null;
+             return {desktopId: app.id, name: app.name, icon: root.appIcon(app.icon),

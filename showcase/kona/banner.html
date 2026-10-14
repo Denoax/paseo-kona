@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Paseo Kona — repository artwork</title>
+    <style>
+      @font-face {
+        font-family: "Kona Inter";
+        src: url("sources/Inter-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-display: block;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: #10141c;
+      }
+      body {
+        font-family: "Kona Inter", sans-serif;
+        color: #e9ecf1;
+      }
+      .artboard {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        min-width: 640px;
+        overflow: hidden;
+        isolation: isolate;
+        background: #141923;
+      }
+      .illumination {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          radial-gradient(ellipse at 89% 20%, #8eb8ff1c, transparent 52%),
+          radial-gradient(ellipse at 2% 115%, #8eb8ff10, transparent 58%);
+      }
+      .orbits {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .orbits path {
+        fill: none;
+        stroke: #8eb8ff;
+        stroke-width: 0.75;
+        opacity: 0.12;
+      }
+      .orbits .near {
+        opacity: 0.24;
+      }
+      .overline {
+        position: absolute;
+        left: 5.5%;
+        top: 9.5%;
+        font-size: clamp(12px, 1vw, 17px);
+        letter-spacing: 0.19em;
+        color: #acbacd;
+      }
+      h1 {
+        position: absolute;
+        left: 5%;
+        top: 23%;
+        margin: 0;
+        font-size: 9.1vw;
+        font-weight: 500;
+        line-height: 0.93;
+        letter-spacing: -0.074em;
+      }
+      h1 span {
+        display: block;
+        color: #8eb8ff;
+      }
+      .description {
+        position: absolute;
+        left: 5.5%;
+        bottom: 17%;
+        margin: 0;
+        font-size: 1.36vw;
+        line-height: 1.55;
+        color: #acbacd;
+      }
+      .footer {
+        position: absolute;
+        left: 5.5%;
+        bottom: 6.5%;
+        right: 5%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 32px;
+        font-size: clamp(10px, 0.76vw, 14px);
+        letter-spacing: 0.15em;
+        color: #8592a5;
+      }
+      .window {
+        position: absolute;
+        width: 59%;
+        aspect-ratio: 1120 / 680;
+        left: 45.5%;
+        top: 17%;
+        overflow: hidden;
+        border-radius: 16px;
+        border: 1px solid #8eb8ff38;
+        background: #141923;
+        transform: perspective(1600px) rotateY(-7deg) rotateZ(-2deg);
+        box-shadow: -22px 24px 75px #050a1466;
+      }
+      .window img {
+        width: 100%;
+        display: block;
+      }
+      .window::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border-radius: inherit;
+        box-shadow: inset 0 0 0 1px #e9ecf10a;
+      }
+      .edge {
+        position: absolute;
+        width: 1px;
+        height: 45%;
+        top: 29%;
+        left: 40%;
+        background: linear-gradient(transparent, #8eb8ff30, transparent);
+      }
+      [data-layout="social"] h1 {
+        top: 24%;
+        font-size: 11.5vw;
+      }
+      [data-layout="social"] .description {
+        bottom: 20%;
+        font-size: 1.55vw;
+      }
+      [data-layout="social"] .window {
+        width: 66%;
+        left: 46%;
+        top: 28%;
+      }
+      [data-layout="social"] .overline {
+        top: 12%;
+        font-size: 1.2vw;
+      }
+      [data-layout="social"] .footer {
+        bottom: 9%;
+        font-size: 0.93vw;
+      }
+      [data-layout="social"] .edge {
+        left: 41%;
+      }
+      [data-layout="type"] h1 {
+        left: 5%;
+        top: 36%;
+        font-size: 9.8vw;
+      }
+      [data-layout="type"] h1 span {
+        display: inline;
+      }
+      .mark {
+        display: none;
+      }
+      [data-layout="type"] .mark {
+        display: block;
+        position: absolute;
+        right: 8%;
+        top: 29%;
+        width: 18%;
+        filter: brightness(0) invert(1);
+        opacity: 0.32;
+      }
+      [data-layout="type"] .window {
+        display: none;
+      }
+      [data-layout="type"] .description {
+        bottom: 24%;
+      }
+      [data-layout="type"] .edge {
+        display: none;
+      }
+      [data-layout="type"] .orbits {
+        transform: translateX(29%) scale(1.8);
+      }
+      [data-layout="type"] .illumination {
+        background: radial-gradient(ellipse at 83% 60%, #8eb8ff20, transparent 54%);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="artboard" aria-label="Paseo Kona banner">
+      <div class="illumination"></div>
+      <svg class="orbits" viewBox="0 0 1600 600" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-180 310 C280 -120 1100 -70 1780 300" />
+        <path class="near" d="M-180 420 C340 15 1080 50 1780 405" />
+        <path d="M-180 540 C400 150 1080 150 1780 515" />
+        <path d="M-180 655 C410 265 1080 265 1780 610" />
+      </svg>
+      <div class="overline">KONA DESKTOP / LOCAL CODING AGENTS</div>
+      <h1>paseo <span>kona</span></h1>
+      <p class="description">A calmer workspace.<br />Your agents. Your machine.</p>
+      <div class="edge" aria-hidden="true"></div>
+      <figure class="window" aria-label="Actual Paseo UI with the Kona theme">
+        <img
+          src="workspace-detail.webp"
+          alt="Paseo Kona theme code in the real Electron renderer"
+        />
+      </figure>
+      <img class="mark" src="../../packages/website/public/logo.svg" alt="" aria-hidden="true" />
+      <div class="footer">
+        <span>DENOAX / COMMUNITY EDITION</span><span>ARCH LINUX · WAYLAND</span>
+      </div>
+    </main>
+    <script>
+      document.documentElement.dataset.layout =
+        new URLSearchParams(location.search).get("layout") || "wide";
+    </script>
+  </body>
+</html>

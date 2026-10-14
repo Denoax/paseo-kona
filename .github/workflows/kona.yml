@@ -1,0 +1,26 @@
+name: Kona layer
+
+on:
+  push:
+    branches: [kona]
+    paths: ["kona/**", ".github/workflows/kona.yml"]
+  pull_request:
+    branches: [kona]
+    paths: ["kona/**", ".github/workflows/kona.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  theme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: npm --prefix kona/theme ci --legacy-peer-deps --ignore-scripts
+      - run: npm --prefix kona/theme run typecheck
+      - run: python3 kona/theme/tools/sync-theme.py --check
+      - run: python3 -m unittest discover -s kona/theme/tools -p 'test_*.py'

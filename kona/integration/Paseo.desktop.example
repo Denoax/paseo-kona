@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Paseo
+Comment=Local coding agents with the Kona appearance
+Exec=/absolute/path/to/paseo-desktop %U
+Icon=/absolute/path/to/paseo-icon.png
+Terminal=false
+Categories=Development;
+StartupWMClass=Paseo
+MimeType=x-scheme-handler/paseo;

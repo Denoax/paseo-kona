@@ -1,223 +1,120 @@
+<div align="center">
+
+<img src="showcase/kona/banner.webp" alt="Paseo Kona — calm navy surfaces and the real theme source open in Paseo" width="100%">
+
+# Paseo Kona
+
+**A calmer workspace for local coding agents.**<br>
+A community fork of [Paseo](https://github.com/getpaseo/paseo), with a soft Kona appearance and an Arch desktop launcher integration.
+
+[Paseo 0.11.2](https://github.com/getpaseo/paseo/releases/tag/v0.11.2) · [Arch Linux / Wayland](https://archlinux.org/) · [Kona theme](kona/theme) · [Apache 2.0](LICENSE)
+
+[Showcase](#the-workspace) · [Install the theme](#install) · [Kona launcher](#one-click-from-kona) · [Source map](#source-map) · [Credits](#credits)
+
+</div>
+
+## The workspace
+
+Paseo brings agents, worktrees, code, diffs, terminals, and a browser into one
+workspace. The Kona layer gives that workspace gentle navy depth, off-white
+reading text, subdued edges, and blue accents tied to useful controls.
+
+<img src="showcase/kona/workspace.webp" alt="Actual Electron capture: the Kona theme source open in an isolated Paseo workspace" width="100%">
+
+This is the real Paseo 0.11.2 renderer with the included plugin. The public capture
+profile contains this repository and an empty workspace; no personal
+conversations are shown. [Capture and artwork sources](showcase/kona/README.md).
+
+## A quieter dark appearance
+
+<img src="showcase/kona/appearance.webp" alt="Kona Appearance settings with Noto Sans and readable interface, content, and code sizes" width="100%">
+
+The palette lifts the darkest surface slightly and keeps bright blue out of
+ordinary dividers and message fills. Main, secondary, and placeholder colors
+meet 4.5:1 contrast on the three checked reading surfaces. Font settings remain
+under your control: the captures use Noto Sans, a 14px interface, 16px content,
+and 13px code.
+
+| Included here                                             | Source                                                                             |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Kona dark theme through the supported plugin API          | [`kona/theme`](kona/theme)                                                         |
+| Portable palette, regeneration, contrast and input checks | [`palette.json`](kona/theme/palette.json), [`tools`](kona/theme/tools)             |
+| Sixth pin in the existing Kona application grid           | [`pin-paseo.patch`](kona/integration/pin-paseo.patch)                              |
+| Complete Paseo 0.11.2 source and upstream documentation   | [`packages`](packages), [`docs`](docs), [`README.upstream.md`](README.upstream.md) |
+
+## One click from Kona
+
 <p align="center">
-  <img src="packages/website/public/logo.svg" width="64" height="64" alt="Paseo logo">
+  <img src="showcase/kona/launcher.png" alt="Actual Kona Applications panel with Paseo pinned beside Visual Studio Code" width="282">
 </p>
 
-<h1 align="center">Paseo</h1>
+The pin fills the sixth position beside Visual Studio Code. Clicking focuses an
+existing Paseo window or launches it through its desktop entry. The original
+five pins stay in place. [Apply the launcher integration](kona/README.md#pin-in-kona-desktop).
 
-<p align="center">
-  <a href="README.md">English</a> ·
-  <a href="README.zh-CN.md">简体中文</a> ·
-  <a href="README.ja.md">日本語</a> ·
-  <a href="README.ko.md">한국어</a>
-</p>
+## Install
 
-<p align="center">
-  <a href="https://github.com/getpaseo/paseo/stargazers">
-    <img src="https://img.shields.io/github/stars/getpaseo/paseo?style=flat&logo=github" alt="GitHub stars">
-  </a>
-  <a href="https://github.com/getpaseo/paseo/releases">
-    <img src="https://img.shields.io/github/v/release/getpaseo/paseo?style=flat&logo=github" alt="GitHub release">
-  </a>
-  <a href="https://x.com/moboudra">
-    <img src="https://img.shields.io/badge/%40moboudra-555?logo=x" alt="X">
-  </a>
-  <a href="https://discord.gg/jz8T2uahpH">
-    <img src="https://img.shields.io/badge/Discord-555?logo=discord" alt="Discord">
-  </a>
-  <a href="https://www.reddit.com/r/PaseoAI/">
-    <img src="https://img.shields.io/badge/Reddit-555?logo=reddit" alt="Reddit">
-  </a>
-</p>
+Use an installed Paseo **0.11.2** and an agent CLI configured with your credentials.
+The plugin's supported host range is `>=0.11.2 <0.12.0`; 0.11.2 is tested.
 
-<p align="center">One interface for Claude Code, Codex, Copilot, OpenCode, Pi, Antigravity, and Muse Code agents.</p>
-
-<p align="center">
-  <img src="https://paseo.sh/hero-mockup.png" alt="Paseo app screenshot" width="100%">
-</p>
-
-<p align="center">
-  <img src="https://paseo.sh/mobile-mockup.png" alt="Paseo mobile app" width="100%">
-</p>
-
-Paseo is a desktop, mobile, web, and CLI app for coding agents. Open the desktop app and work: agents, editor, terminals, diffs, pull requests, and a browser in one window. Run many agents at once, each in its own worktree, on one machine or several. The mobile app is the full app, native on iOS and Android.
-
-- **Parallel agents:** Run many agents at once, each in its own worktree.
-- **Built-in orchestration:** Agents in Paseo can create worktrees, launch other agents, and talk to them, across providers.
-- **Full IDE:** Edit files, review diffs, open pull requests, and run terminals, in split panes you arrange how you want.
-- **Self-hosted:** Agents run on your machine with your full dev environment. Use your tools, your configs, and your skills.
-- **Multi-provider:** Claude Code, Codex, Copilot, OpenCode, Pi, Antigravity, and Muse Code through the same interface. Pick the right model for each job.
-- **Voice control:** Dictate tasks or talk through problems in voice mode. Hands-free when you need it.
-- **Cross-device:** iOS, Android, desktop, web, and CLI. Start work at your desk, check in from your phone, script it from the terminal.
-- **Privacy-first:** Paseo doesn't have any telemetry, tracking, or forced log-ins.
-
-[Run parallel tasks in Paseo](https://paseo.sh/docs/parallel-development): start agents in separate worktrees, review their diffs, run each app, and check it in the built-in browser.
-
-## Plugins
-
-Plugins run on the daemon and show up in every client you connect, with the same UI on desktop, web,
-iOS, and Android. Write a plugin once and it is on your phone.
-
-- **UI:** screens, sidebar items, workspace panels, Command Center items, slash commands, composer pills, attachment sources, timeline items, themes.
-- **Agent lifecycle:** change configuration, environment, and MCP servers, answer permissions, follow up when a turn ends.
-- **Providers:** add a coding agent as a provider.
-
-Install from the registry with `paseo plugin add owner/slug`, or from Git or a local directory.
-
-**[Browse plugins](https://paseo.sh/plugins)** · **[Plugin docs](https://paseo.sh/docs/plugins)**
-
-Plugins run with access to your daemon machine and inside connected clients; install only code you trust.
-
-## Getting Started
-
-Paseo runs a local server called the daemon that manages your coding agents. Clients like the desktop app, mobile app, web app, and CLI connect to it.
-
-### Prerequisites
-
-You need at least one agent CLI installed and configured with your credentials:
-
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
-- [Codex](https://github.com/openai/codex)
-- [GitHub Copilot](https://github.com/features/copilot/cli/)
-- [OpenCode](https://github.com/anomalyco/opencode)
-- [Pi](https://pi.dev)
-- [Antigravity](https://paseo.sh/docs/supported-providers#antigravity)
-- [Muse Code](https://paseo.sh/docs/muse-code)
-
-### Desktop app (recommended)
-
-Download it from [paseo.sh/download](https://paseo.sh/download) or the [GitHub releases page](https://github.com/getpaseo/paseo/releases). Open the app and the daemon starts automatically. Nothing else to install.
-
-To connect from your phone, open **Settings → your host → Pair Device**.
-
-### Server
-
-For a server, a VM, or any machine without the desktop app. Install the CLI and start the daemon:
-
-```bash
-npm install -g @getpaseo/cli
-paseo
+```sh
+git clone --branch kona https://github.com/Denoax/paseo-kona.git
+cd paseo-kona
+paseo plugin install ./kona/theme
 ```
 
-Paseo starts, then asks whether to enable the end-to-end encrypted relay for device pairing. If you decline, connect directly over TCP, Tailscale, or another VPN. The desktop, mobile, and web apps connect to this daemon like any other host.
+Enable plugins in **Settings → Plugins**, then choose **Kona** in
+**Settings → Appearance**. Paseo compiles the plugin; installing its development
+dependencies is only needed when editing or checking it. The contributed code
+sets colors and has no backend entrypoint.
 
-For full setup and configuration, see:
+For desktop integration, palette refresh, existing sessions, and the validation
+boundary, read [Kona setup](kona/README.md). To build the full application, follow
+[upstream development](docs/development.md). This fork has no separately packaged
+Kona binary release yet.
 
-- [Docs](https://paseo.sh/docs)
-- [Connectivity guide](https://paseo.sh/docs/connectivity)
-- [Configuration reference](https://paseo.sh/docs/configuration)
+## Source map
 
-### Docker
-
-Run the Paseo daemon and self-hosted web UI in Docker:
-
-```bash
-docker run -d --name paseo \
-  -p 6767:6767 \
-  -e PASEO_PASSWORD=change-me \
-  -v "$PWD/paseo-home:/home/paseo" \
-  -v "$PWD:/workspace" \
-  ghcr.io/getpaseo/paseo:latest
+```text
+kona/
+  theme/          supported theme plugin, palette and focused checks
+  integration/    Kona pin patch and desktop-entry example
+showcase/kona/    real captures, banner source and social-preview image
+packages/        preserved upstream app, daemon, desktop and CLI
+docs/            upstream architecture, development and provider contracts
 ```
 
-Open `http://localhost:6767` after it starts. Extend the base image with the agent CLIs you use, then provide credentials through environment variables or the persistent `/home/paseo` volume. See the [Docker documentation](docs/docker.md) for full setup details.
+The `kona` branch starts from upstream `v0.11.2`, commit
+`75953250959979b8f088bbca8dbd6ee61d0151b1`. Keep updates explicit and review each
+new upstream release. [Fork maintenance](kona/README.md).
 
-## CLI
+## Check the Kona layer
 
-Everything you can do in the app, you can do from the terminal.
-
-```bash
-paseo run --provider claude/opus-4.6 "implement user authentication"
-paseo run --provider codex/gpt-5.5 --worktree feature-x "implement feature X"
-
-paseo ls                           # list running agents
-paseo attach abc123                # stream live output
-paseo send abc123 "also add tests" # follow-up task
-
-# run on a remote daemon; --cwd is a path on that host
-paseo run --host workstation.local:6767 --cwd /workspace "run the full test suite"
+```sh
+npm --prefix kona/theme ci --legacy-peer-deps
+npm --prefix kona/theme run typecheck
+python3 kona/theme/tools/sync-theme.py --check
+python3 -m unittest discover -s kona/theme/tools -p 'test_*.py'
 ```
 
-See the [full CLI reference](https://paseo.sh/docs/cli) for more.
+Local checks cover the plugin contract, palette regeneration, invalid inputs,
+reading contrast, the rendered Arch appearance, and the launcher action.
+The full upstream app suite and mobile platforms were not rerun for this layer.
+Animation behavior and performance remain upstream.
 
-## TypeScript SDK
+## Credits
 
-Build issue integrations, dashboards, and orchestration services with `@getpaseo/client`:
+- **Paseo:** Mohamed Boudra and [upstream contributors](https://github.com/getpaseo/paseo), under the retained [Apache 2.0 license](LICENSE). The Paseo mark and existing third-party notices remain attributed to their owners.
+- **Kona integration and repository artwork:** Mani Marami Milani / [Denoax](https://github.com/Denoax).
+- **Presentation references:** [Kona Desktop](https://github.com/Denoax/konata-hyprland-dotfiles) for banner-first documentation and screenshot-led galleries; [the portfolio](https://github.com/Denoax/portfolio) for typography, restrained lighting, and spatial line work. Their visual assets are not copied.
+- **Inter:** Rasmus Andersson, [SIL Open Font License](showcase/kona/sources/Inter-OFL.txt).
 
-```ts
-import { createPaseoClient } from "@getpaseo/client";
+The banner uses original HTML/CSS/SVG and an actual app capture. No generated
+visual media, fabricated activity, or private transcripts are included.
 
-const client = createPaseoClient({ url: "ws://127.0.0.1:6767/ws" });
-await client.connect();
+<div align="center">
 
-const agent = await client.agents.create({
-  config: { provider: "codex/gpt-5.5" },
-  cwd: "/Users/me/dev/storefront",
-  prompt: "Review the current diff and name the riskiest change.",
-});
+**Paseo, in the Kona desktop family.**<br>
+[Upstream project](https://github.com/getpaseo/paseo) · [Kona Desktop](https://github.com/Denoax/konata-hyprland-dotfiles) · [Portfolio](https://manimarami.com/)
 
-const result = await agent.waitForFinish();
-console.log(result.lastMessage);
-
-await client.close();
-```
-
-See the [SDK quickstart](https://paseo.sh/docs/sdk/quickstart), [recipes](https://paseo.sh/docs/sdk/recipes), and [API reference](https://paseo.sh/docs/sdk/reference).
-
-## Skills
-
-Skills teach your agent to use Paseo to orchestrate other agents.
-
-```bash
-npx skills add getpaseo/paseo
-```
-
-Then use them in any agent conversation:
-
-- `/paseo-handoff` — hand off work between agents. I use this to plan with Claude and then handoff to Codex to implement.
-- `/paseo-advisor` — spin up a single agent as an advisor for a second opinion, without delegating the work itself.
-- `/paseo-committee` — form a committee of two contrasting agents to step back, do root cause analysis, and produce a plan.
-
-## Development
-
-Quick monorepo package map:
-
-- `packages/server`: Paseo daemon (agent process orchestration, WebSocket API, MCP server)
-- `packages/app`: Expo client (iOS, Android, web)
-- `packages/cli`: `paseo` CLI for daemon and agent workflows
-- `packages/desktop`: Electron desktop app
-- `packages/relay`: Relay transport and encryption used by the daemon and clients
-- `packages/website`: Marketing site and documentation (`paseo.sh`)
-
-Common commands:
-
-```bash
-# run all local dev services
-npm run dev
-
-# run individual surfaces
-npm run dev:server
-npm run dev:app
-npm run dev:desktop
-npm run dev:website
-
-# build the server stack
-npm run build:server
-
-# repo-wide checks
-npm run typecheck
-```
-
-## Sponsors
-
-Paseo is an independent project used by tens of thousands of developers daily, built by one person and funded by the people who use it. Support the work on [GitHub Sponsors](https://github.com/sponsors/boudra). Companies can [sponsor Paseo](https://paseo.sh/sponsor#spot) monthly and have their logo shown here and on the paseo.sh homepage.
-
-<!-- Sponsor logos go here, in the same order as packages/website/src/data/sponsors.ts -->
-
-## Related projects
-
-- [getpaseo/paseo-relay](https://github.com/getpaseo/paseo-relay) — official distributed relay, written in Elixir
-- [paseo-vscode](https://marketplace.visualstudio.com/items?itemName=hinnes.paseo-vscode) — VS Code extension
-
-## License
-
-Apache-2.0
+</div>

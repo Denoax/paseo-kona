@@ -1,0 +1,72 @@
+{
+  "upstreamCommit": "75953250959979b8f088bbca8dbd6ee61d0151b1",
+  "themeOriginCommit": "7621cbd",
+  "references": [
+    "https://github.com/Denoax/konata-hyprland-dotfiles",
+    "https://github.com/Denoax/portfolio"
+  ],
+  "workspaceCapture": {
+    "appVersion": "0.11.2",
+    "renderer": "Electron",
+    "logicalPixels": [1440, 900],
+    "isolatedProfile": true,
+    "agentPrompts": 0,
+    "privateSessionImports": 0
+  },
+  "banner": {
+    "logicalPixels": [1600, 600],
+    "format": "WebP",
+    "kind": "original HTML/CSS/SVG documentation composition with actual app crop"
+  },
+  "socialPreview": {
+    "logicalPixels": [1280, 640],
+    "bytes": 198483,
+    "kind": "static original typography and unchanged upstream logo"
+  },
+  "files": {
+    "showcase/kona/appearance.webp": {
+      "bytes": 28908,
+      "sha256": "4d0224a134068bb1e868382de2035bda8ad6814bd6468e2dc7f1783189499fb6"
+    },
+    "showcase/kona/banner.html": {
+      "bytes": 5989,
+      "sha256": "8e0e72523ec2737d7156bf1c4ea8112fd5683661ef269503d9fe8c0e08f3165c"
+    },
+    "showcase/kona/banner.webp": {
+      "bytes": 55276,
+      "sha256": "06db24e78af1fc1d3d896abee80d6b6f6040add5c5468201b20af009ee9552d9"
+    },
+    "showcase/kona/launcher.png": {
+      "bytes": 15499,
+      "sha256": "44abb5c59ca3cc88377b35c12c92154bf38cc636a2e604857139220163bdfd07"
+    },
+    "showcase/kona/social-preview.png": {
+      "bytes": 198483,
+      "sha256": "e64a701e1ffb2dfc1e9d251f7071298658fe037ce4c1e881e2cb815489b098d8"
+    },
+    "showcase/kona/sources/Inter-Medium.woff2": {
+      "bytes": 114348,
+      "sha256": "0ff3e94614e1493eb556314fd247ae6c4a85a7783b4cc86be539940cf83f2a48"
+    },
+    "showcase/kona/sources/Inter-OFL.txt": {
+      "bytes": 4380,
+      "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a"
+    },
+    "showcase/kona/sources/appearance-original.png": {
+      "bytes": 99662,
+      "sha256": "c7485000a746143878c551761ec67119058ae6a5acb05e84b9feb6da71b30fa9"
+    },
+    "showcase/kona/sources/workspace-original.png": {
+      "bytes": 115609,
+      "sha256": "be7b7c391b8892f4ab34b11a37d7861456f220ff2d301303e6f5dcc9901c35e1"
+    },
+    "showcase/kona/workspace-detail.webp": {
+      "bytes": 32420,
+      "sha256": "3c2129888af841651c13f5b228557e008efadea0024ea34186114bf73849ff3c"
+    },
+    "showcase/kona/workspace.webp": {
+      "bytes": 39996,
+      "sha256": "0d30a4d30e847055e8b390e055e32bbbf1d801bdf04ab563b34f5f2d637f4e51"
+    }
+  }
+}
